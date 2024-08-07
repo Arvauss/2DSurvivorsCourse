@@ -9,8 +9,8 @@ func _ready():
 	
 	
 func on_died():
-	if randf() >= drop_percent:
-		return
+	#if randf() >= drop_percent:
+		#return
 	if vial_scene == null:
 		return
 	
