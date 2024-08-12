@@ -1,17 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://dt2d0bsqtt7vs"]
+[gd_scene load_steps=13 format=3 uid="uid://dt2d0bsqtt7vs"]
 
 [ext_resource type="PackedScene" uid="uid://csm2pcef8abw0" path="res://scenes/game_object/player/player.tscn" id="1_37vea"]
 [ext_resource type="TileSet" uid="uid://ot3urbkrpvqk" path="res://resources/tileset.tres" id="1_75gci"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_cxvej"]
 [ext_resource type="PackedScene" uid="uid://bo31kkmr3ah01" path="res://scenes/ui/arena_time_ui.tscn" id="1_h01iu"]
 [ext_resource type="PackedScene" uid="uid://cqccjlb6nq312" path="res://scenes/manager/enemy_manager.tscn" id="1_r3cnw"]
 [ext_resource type="PackedScene" uid="uid://xn4xw53yjsu7" path="res://scenes/manager/arena_time_manager.tscn" id="2_ecrbq"]
 [ext_resource type="PackedScene" uid="uid://bmkblaj7yvo" path="res://scenes/ui/experience_bar.tscn" id="2_ksg8g"]
 [ext_resource type="PackedScene" uid="uid://d3qc3725px52k" path="res://scenes/game_object/game_camera/game_camera.tscn" id="3_wnnbj"]
 [ext_resource type="PackedScene" uid="uid://b7gi6d3f0knfa" path="res://scenes/manager/experience_manager.tscn" id="4_mldh5"]
+[ext_resource type="PackedScene" uid="uid://d4cbn2550pbdt" path="res://scenes/ui/end_screen.tscn" id="4_vsgmf"]
 [ext_resource type="Script" path="res://scenes/manager/experience_manager.gd" id="5_2r8wi"]
 [ext_resource type="PackedScene" uid="uid://dt3wpglnclavs" path="res://scenes/manager/upgrade_manager.tscn" id="7_4ejav"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_cxvej")
+end_screen_scene = ExtResource("4_vsgmf")
 
 [node name="ArenaTimeUI" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_h01iu")]
 arena_time_manager = NodePath("../ArenaTimeManager")
@@ -40,6 +44,7 @@ layer_0/tile_data = PackedInt32Array(1441831, 0, 4, 1376295, 0, 4, 1310759, 0, 4
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_37vea")]
+unique_name_in_owner = true
 position = Vector2(574, 387)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]
